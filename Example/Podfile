@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'WKAudioPlayer_Example' do
+  pod 'WKAudioPlayer', :path => '../'
+
+  target 'WKAudioPlayer_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
