@@ -1,0 +1,16 @@
+PODS:
+  - WKAudioPlayer (0.1.0)
+
+DEPENDENCIES:
+  - WKAudioPlayer (from `../`)
+
+EXTERNAL SOURCES:
+  WKAudioPlayer:
+    :path: ../
+
+SPEC CHECKSUMS:
+  WKAudioPlayer: dcdd9a8cda217814b405421213fdfd68748502a3
+
+PODFILE CHECKSUM: 90baf6f201ad397c4059f38064564795fd8875a3
+
+COCOAPODS: 1.3.1
