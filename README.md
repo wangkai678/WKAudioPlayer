@@ -1,4 +1,5 @@
 # WKAudioPlayer
+<<<<<<< HEAD
 
 [![CI Status](http://img.shields.io/travis/wangkai_678@163.com/WKAudioPlayer.svg?style=flat)](https://travis-ci.org/wangkai_678@163.com/WKAudioPlayer)
 [![Version](https://img.shields.io/cocoapods/v/WKAudioPlayer.svg?style=flat)](http://cocoapods.org/pods/WKAudioPlayer)
@@ -27,3 +28,6 @@ wangkai_678@163.com, 2567851526@qq.com
 ## License
 
 WKAudioPlayer is available under the MIT license. See the LICENSE file for more info.
+=======
+音频播放器
+>>>>>>> 0e2eb7f74eda7baf04b41c388a98a950c7a0a77b
