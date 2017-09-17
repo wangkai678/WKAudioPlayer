@@ -7,8 +7,12 @@
 //
 
 #import "WKViewController.h"
+#import "WKAudioPlayer.h"
 
 @interface WKViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *playTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
+@property (weak, nonatomic) IBOutlet UIProgressView *loadPV;
 
 @end
 
@@ -17,13 +21,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)play:(id)sender {
+    [[WKAudioPlayer shareInstance] playerWithURL:[NSURL URLWithString:@""]];
 }
+
+- (IBAction)pause:(id)sender {
+}
+
+- (IBAction)resume:(id)sender {
+}
+
+- (IBAction)kuaijin:(id)sender {
+}
+
+- (IBAction)progress:(id)sender {
+}
+
+- (IBAction)rate:(id)sender {
+}
+
+- (IBAction)volume:(id)sender {
+}
+
+
 
 @end

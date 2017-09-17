@@ -59,14 +59,14 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		6EEA96B15C6731381B54D2DB /* Pods-WKAudioPlayer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKAudioPlayer_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WKAudioPlayer_Tests/Pods-WKAudioPlayer_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7C3999A0BB50AF19EC3AF69A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		7C3999A0BB50AF19EC3AF69A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8978D3CDC1FFF8D5FC2986A3 /* Pods-WKAudioPlayer_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKAudioPlayer_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKAudioPlayer_Example/Pods-WKAudioPlayer_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		A3CCAED69FA172DB5478E9D9 /* WKAudioPlayer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = WKAudioPlayer.podspec; path = ../WKAudioPlayer.podspec; sourceTree = "<group>"; };
+		A3CCAED69FA172DB5478E9D9 /* WKAudioPlayer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = WKAudioPlayer.podspec; path = ../WKAudioPlayer.podspec; sourceTree = "<group>"; };
 		AC7214F1EC0162F221E51DB2 /* Pods_WKAudioPlayer_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WKAudioPlayer_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FE075B73685709FE120FC0 /* Pods-WKAudioPlayer_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKAudioPlayer_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKAudioPlayer_Tests/Pods-WKAudioPlayer_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		F043BC63AD5B572647ACB8C3 /* Pods-WKAudioPlayer_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKAudioPlayer_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-WKAudioPlayer_Example/Pods-WKAudioPlayer_Example.release.xcconfig"; sourceTree = "<group>"; };
-		FC747A613390B9B8C32B5752 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		FC747A613390B9B8C32B5752 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

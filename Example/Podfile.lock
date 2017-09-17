@@ -1,5 +1,5 @@
 PODS:
-  - WKAudioPlayer (0.1.0)
+  - WKAudioPlayer (0.0.1)
 
 DEPENDENCIES:
   - WKAudioPlayer (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  WKAudioPlayer: dcdd9a8cda217814b405421213fdfd68748502a3
+  WKAudioPlayer: bc1b56f06652431f558fcee5def888c9e8d9a3c3
 
 PODFILE CHECKSUM: 90baf6f201ad397c4059f38064564795fd8875a3
 
