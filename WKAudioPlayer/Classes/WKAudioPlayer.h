@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, WKAudioPlayerState) {
 + (instancetype)shareInstance;
 
 //播放
-- (void)playerWithURL:(NSURL *)url;
+- (void)playerWithURL:(NSURL *)url isCache:(BOOL)isCache;
 
 //暂停
 - (void)pause;

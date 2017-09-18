@@ -8,12 +8,16 @@
 
 #import "WKAudioPlayer.h"
 #import <AVFoundation/AVFoundation.h>
+#import "WKAudioResourceLoaderDelegate.h"
+#import "NSURL+WK.h"
 
 @interface WKAudioPlayer () {
     BOOL _isUserPause;
 }
 
 @property(nonatomic,strong)AVPlayer *player;
+@property(nonatomic,strong)WKAudioResourceLoaderDelegate *resourceLoaderDelegate;
+
 
 @end
 
@@ -37,18 +41,24 @@ static WKAudioPlayer *_shareInstance;
     return _shareInstance;
 }
 
-- (void)playerWithURL:(NSURL *)url {
+- (void)playerWithURL:(NSURL *)url isCache:(BOOL)isCache {
     NSURL *currentURL = [(AVURLAsset *)self.player.currentItem.asset URL];
-    if ([url isEqual:currentURL]) {
+    if ([url isEqual:currentURL] || [[url streamingURL] isEqual:currentURL]) {
         NSLog(@"当前播放任务已经存在");
         [self resume];
         return;
     }
     
     _url = url;
-    
+    if (isCache) {
+        url = [url streamingURL];
+    }
+
     AVURLAsset *asset = [AVURLAsset assetWithURL:url];
-    
+    //关于网络音频的请求是通过这个对象调用代理相关的方法进行家在的
+    //拦截加载的请求，只需要重新修改它的代理方法就可以
+    self.resourceLoaderDelegate = [[WKAudioResourceLoaderDelegate alloc] init];
+    [asset.resourceLoader setDelegate:self.resourceLoaderDelegate queue:dispatch_get_main_queue()];
     if (self.player.currentItem) {
         [self removeObserver];
     }
