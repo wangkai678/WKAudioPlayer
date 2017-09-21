@@ -8,8 +8,23 @@
 
 #import "WKAudioResourceLoaderDelegate.h"
 #import "WKAudioFile.h"
+#import "WKAudioDownLoader.h"
+#import "NSURL+WK.h"
+
+@interface WKAudioResourceLoaderDelegate ()
+
+@property (nonatomic, strong)WKAudioDownLoader *doenLoader;
+
+@end
 
 @implementation WKAudioResourceLoaderDelegate
+
+- (WKAudioDownLoader *)doenLoader {
+    if (!_doenLoader) {
+        _doenLoader = [[WKAudioDownLoader alloc] init];
+    }
+    return _doenLoader;
+}
 
 //当外界需要播放一段音频资源时会抛一个请求给这个对象，这个对象只需要根据请求信息抛数据给外界
 - (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest {
@@ -21,9 +36,15 @@
         return YES;
     }
     
-    //如果当前正在下载
+    //如果当前没有下载则开始下载
+    if(self.doenLoader.loadedSize ==0){
+        NSURL *httpURL = [url httpURL];
+       long long requestOffset = loadingRequest.dataRequest.requestedOffset;
+        [self.doenLoader downLoadwithURL:httpURL offset:requestOffset];
+        return YES;
+    }
     
-    
+    　//需要重新下载
     
 }
 
@@ -37,8 +58,8 @@
     //填充响应的信息头信息
     
     NSURL *url = loadingRequest.request.URL;
-    long long totalSize = [WKAudioFile cacheFileSize:url];
-    NSString *contentType = [WKAudioFile contentType:url];
+    long long totalSize = [WKAudioFile cacheFileSize:url];//获取总大小
+    NSString *contentType = [WKAudioFile contentType:url];//获取文件类型
     loadingRequest.contentInformationRequest.contentLength = totalSize;
     loadingRequest.contentInformationRequest.contentType = contentType;
     loadingRequest.contentInformationRequest.byteRangeAccessSupported = YES;
