@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong)NSURLSession *session;
 @property (nonatomic ,strong) NSOutputStream *outputStream;
-@property (nonatomic ,assign) long long totalSize;
 @property (nonatomic ,strong) NSURL *url;
 
 
@@ -31,6 +30,7 @@
 - (void)downLoadwithURL:(NSURL *)url offset:(long long)offset {
     [self cancelAndClean];
     self.url = url;
+    self.offset = offset;
     //请求某一个区间的数据range
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:0];
     [request setValue:[NSString stringWithFormat:@"bytes=%lld-",offset] forHTTPHeaderField:@"Range"];
@@ -55,9 +55,9 @@
     if (contentRangeStr.length != 0) {
         self.totalSize = [[contentRangeStr componentsSeparatedByString:@"/"].lastObject longLongValue];
     }
-    
+    self.mimeType = response.MIMEType;
     self.outputStream = [NSOutputStream outputStreamToFileAtPath:[WKAudioFile tempFilePath:self.url] append:YES];
-    
+    [self.outputStream open];
     completionHandler(NSURLSessionResponseAllow);
 }
 
@@ -65,6 +65,9 @@
     didReceiveData:(NSData *)data {
     self.loadedSize += data.length;
     [self.outputStream write:data.bytes maxLength:data.length];
+    if ([self.delegate respondsToSelector:@selector(downLoading)]) {
+        [self.delegate downLoading];
+    }
 }
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
@@ -78,6 +81,7 @@
     }else{
         NSLog(@"有错误");
     }
+    [self.outputStream close];
 }
 
 

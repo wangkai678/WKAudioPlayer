@@ -49,7 +49,7 @@
 }
 
 - (IBAction)play:(id)sender {
-    [[WKAudioPlayer shareInstance] playerWithURL:[NSURL URLWithString:@"http://www.0772music.cn/uploadfiles/article/admin/2008-12/2008122309035034344.mp3"] isCache:NO];
+    [[WKAudioPlayer shareInstance] playerWithURL:[NSURL URLWithString:@"http://www.0772music.cn/uploadfiles/article/admin/2008-12/2008122309035034344.mp3"] isCache:YES];
 }
 
 - (IBAction)pause:(id)sender {
