@@ -16,10 +16,8 @@
 @property (weak, nonatomic) IBOutlet UISlider *playSlider;
 @property (weak, nonatomic) IBOutlet UIButton *mutedBtn;
 @property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
-
-
-
 @property (nonatomic, weak) NSTimer *timer;
+
 @end
 
 @implementation WKViewController

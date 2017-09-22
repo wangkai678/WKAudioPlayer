@@ -59,7 +59,7 @@
         return YES;
     }
     
-    　//判断是否需要重新下载
+    //判断是否需要重新下载
     //1.当资源请求的开始点小于下载的开始点
     //2.当资源的请求开始点>（下载的开始点＋下载的长度 + 666）
     if (requestOffset < self.doenLoader.offset || requestOffset > (self.doenLoader.offset + self.doenLoader.loadedSize + 666)) {
@@ -96,7 +96,9 @@
         loadingRequest.contentInformationRequest.byteRangeAccessSupported = YES;
         //2.填充数据
         NSData *data = [NSData dataWithContentsOfFile:[WKAudioFile tempFilePath:url] options:NSDataReadingMappedIfSafe error:nil];
-        
+        if (data == nil) {
+            data = [NSData dataWithContentsOfFile:[WKAudioFile cacheFilePath:url] options:NSDataReadingMappedIfSafe error:nil];
+        }
         long long requestOffset = loadingRequest.dataRequest.requestedOffset;
         long long currentOffset = loadingRequest.dataRequest.currentOffset;
         if (requestOffset != currentOffset) {
@@ -124,7 +126,7 @@
 - (void)handleLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest {
     //填充响应的信息头信息
     
-    NSURL *url = loadingRequest.request.URL;
+    NSURL *url = [loadingRequest.request.URL httpURL];
     long long totalSize = [WKAudioFile cacheFileSize:url];//获取总大小
     NSString *contentType = [WKAudioFile contentType:url];//获取文件类型
     loadingRequest.contentInformationRequest.contentLength = totalSize;

@@ -81,7 +81,7 @@
     }else{
         NSLog(@"有错误");
     }
-    [self.outputStream close];
+//    [self.outputStream close];
 }
 
 

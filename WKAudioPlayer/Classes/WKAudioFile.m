@@ -20,7 +20,7 @@
 }
 
 + (long long)cacheFileSize:(NSURL *)url {
-    if ([self cacheFileExists:url]) {
+    if (![self cacheFileExists:url]) {
         return 0;
     }
     NSString *path = [self cacheFilePath:url];
@@ -40,7 +40,7 @@
 }
 
 + (long long)tempFileSize:(NSURL *)url {
-    if ([self tempFileExists:url]) {
+    if (![self tempFileExists:url]) {
         return 0;
     }
     NSString *path = [self tempFilePath:url];
