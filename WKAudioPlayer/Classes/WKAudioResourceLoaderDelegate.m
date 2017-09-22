@@ -108,7 +108,6 @@
         long long responseOffset = requestOffset - self.doenLoader.offset;
         long long responseLength = MIN(self.doenLoader.offset + self.doenLoader.loadedSize - requestOffset, requestLength);
         
-        
         NSData *subData = [data subdataWithRange:NSMakeRange(responseOffset, responseLength)];
         [loadingRequest.dataRequest respondWithData:subData];
         
